@@ -91,8 +91,8 @@ if ( ! function_exists( 'yplefclassic_setup' ) ) :
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-				'primary' => __( 'Primary Menu', 'yplefclassic' ),
-				'social'  => __( 'Social Links Menu', 'yplefclassic' ),
+				'menu-1' => __( 'Primary Menu', 'yplefclassic' ),
+				'menu-2'  => __( 'Social Links Menu', 'yplefclassic' ),
 			)
 		);
 
@@ -572,7 +572,7 @@ add_action( 'wp_enqueue_scripts', 'yplefclassic_post_nav_background' );
  * @return string Menu item with possible description.
  */
 function yplefclassic_nav_description( $item_output, $item, $depth, $args ) {
-	if ( 'primary' === $args->theme_location && $item->description ) {
+	if ( 'primary' === @$args->theme_location && $item->description ) {
 		$item_output = str_replace( $args->link_after . '</a>', '<div class="menu-item-description">' . $item->description . '</div>' . $args->link_after . '</a>', $item_output );
 	}
 

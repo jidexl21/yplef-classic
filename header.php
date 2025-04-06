@@ -22,6 +22,24 @@
 
   </head>
   <body <?php body_class(); ?>>
+  <?php
+    $args = array(
+				'theme_location' => 'menu-1',
+        'menu_id'        => 'responsive-menu',
+				'depth'      => 2,
+				'container'  => false,
+				'menu_class'     => 'nav navbar-nav',
+				'walker'     => new Bootstrap_Walker_Nav_Menu()
+		);	
+    $args2 = array(
+      'theme_location' => 'menu-3',
+      'menu_id'        => 'availability-tabs',
+      'depth'      => 2,
+      'container'  => false,
+      'menu_class'     => 'navbar-nav ms-auto mb-2 mb-md-0',
+      'walker'     => new Bootstrap_Walker_Nav_Menu()
+  );			
+	?>
     <!-- Preloader -->
     <div id="preloader">
       <div id="status"></div>
@@ -71,6 +89,7 @@
               </div>
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="navbar-collapse1 w-100" id="bs-example-navbar-collapse-1">
+              <?php if (has_nav_menu('menu-1')) : wp_nav_menu($args); else: ?>
                 <ul class="nav navbar-nav" id="responsive-menu">
                   <li class="dropdown submenu active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
@@ -128,6 +147,7 @@
                   </li>
                   <li><a href="contact.html">Contact Us</a></li>
                 </ul>
+              <?php endif; ?>
               </div>
               <!-- /.navbar-collapse -->
               <div id="slicknav-mobile"></div>
