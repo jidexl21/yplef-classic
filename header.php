@@ -39,6 +39,9 @@
       'menu_class'     => 'navbar-nav ms-auto mb-2 mb-md-0',
       'walker'     => new Bootstrap_Walker_Nav_Menu()
   );			
+  $contact_phone =  get_theme_mod('contact_phone');
+  $top_section = (object) get_theme_mod('yplef_page_top');
+
 	?>
     <!-- Preloader -->
     <div id="preloader">
@@ -48,24 +51,19 @@
 
     <!-- header starts -->
     <header class="main_header_area">
+      <?php if ($top_section->display_section): ?>
       <div class="topbar-wrap">
         <div class="container">
           <div class="top-info d-flex justify-content-between align-items-center">
             <ul class="t-address">
-              <li><i class="fas fa-phone-alt"></i>+234 8109441322</li>
-              <li><i class="far fa-envelope"></i> <a href="https://htmldesigntemplates.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="97fef9f1f8d7f2e7f6e3ffe4f6fbf6b9f4f8fa">[email&#160;protected]</a></li>
-              <li><i class="fas fa-map-marker-alt"></i> Your address here</li>
+              <li><i class="fas fa-phone-alt"></i><?php echo $top_section->contact_phone?></li>
+              <li><i class="far fa-envelope"></i> <a href="mailto:<?php echo $top_section->contact_email?>"><?php echo $top_section->contact_email?></a></li>
+              <li><i class="fas fa-map-marker-alt"></i> <?php echo $top_section->contact_address?> </li>
             </ul>
             <ul class="t-social">
-              <li>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-              </li>
+              <?php if (@$top_section->facebook_link) : ?> <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>  <?php endif ;?>
+              <?php if (@$top_section->finstagram_link) : ?> <li> <a href="#"><i class="fab fa-instagram"></i></a> </li> <?php endif ;?>
+              <?php if (@$top_section->twitter_link) : ?> <li> <a href="#"><i class="fab fa-twitter"></i></a> </li>   <?php endif; ?>
               <li>
                 <span class="ct-search-link"
                   ><a href="#"><i class="fa fa-search"></i></a
@@ -75,6 +73,7 @@
           </div>
         </div>
       </div>
+      <?php endif; ?>
 
       <!-- Navigation Bar -->
       <div class="header_menu">

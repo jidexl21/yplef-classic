@@ -109,6 +109,137 @@ function yplefclassic_customize_register( $wp_customize ) {
 
 	// Add an additional description to the header image section.
 	$wp_customize->get_section( 'header_image' )->description = __( 'Applied to the header on small screens and the sidebar on wide screens.', 'yplefclassic' );
+
+/**  Page Top settings */
+
+  $wp_customize->add_section( 'yplef_page_top' , array(
+
+	'title'      => __( 'Page Top Section', 'yplef' ),
+	
+	'priority'   => 30,
+	
+	) );
+
+	$wp_customize->add_setting(
+		'yplef_page_top[display_section]',
+		array(
+			'default'           => 1,
+			// 'sanitize_callback' => 'yplefclassic_sanitize_color_scheme',
+			'transport'         => 'postMessage',
+		)
+	);
+	$wp_customize->add_setting(
+		'yplef_page_top[contact_phone]',
+		array(
+			'default'           => '+2348012345678',
+			// 'sanitize_callback' => 'yplefclassic_sanitize_color_scheme',
+			'transport'         => 'postMessage',
+		)
+	);
+	$wp_customize->add_setting(
+		'yplef_page_top[contact_email]',
+		array(
+			'default'           => 'default',
+			// 'sanitize_callback' => 'yplefclassic_sanitize_color_scheme',
+			'transport'         => 'postMessage',
+		)
+	);
+	$wp_customize->add_setting(
+		'yplef_page_top[contact_address]',
+		array(
+			'default'           => 'default',
+			// 'sanitize_callback' => 'yplefclassic_sanitize_color_scheme',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'yplef_page_top[facebook_link]',
+		array(
+			'default'           => '#',
+			// 'sanitize_callback' => 'yplefclassic_sanitize_color_scheme',
+			'transport'         => 'postMessage',
+		)
+	);
+	$wp_customize->add_setting(
+		'yplef_page_top[instagram_link]',
+		array(
+			'default'           => '#',
+			// 'sanitize_callback' => 'yplefclassic_sanitize_color_scheme',
+			'transport'         => 'postMessage',
+		)
+	);
+	$wp_customize->add_setting(
+		'yplef_page_top[twitter_link]',
+		array(
+			'default'           => '#',
+			// 'sanitize_callback' => 'yplefclassic_sanitize_color_scheme',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'display_section',
+		array(
+			'label'    => __( 'Enable Section', 'yplefclassic' ),
+			'section'  => 'yplef_page_top',
+			'settings' => 'yplef_page_top[display_section]',
+			'type'     => 'checkbox',
+			// 'choices'  => yplefclassic_get_color_scheme_choices(),
+			'priority' => 1,
+		)
+	);	
+
+	$wp_customize->add_control(
+		'contact_email',
+		array(
+			'label'    => __( 'Contact email', 'yplefclassic' ),
+			'section'  => 'yplef_page_top',
+			'settings'  => 'yplef_page_top[contact_email]',
+			'type'     => 'text',
+			// 'choices'  => yplefclassic_get_color_scheme_choices(),
+			'priority' => 1,
+		)
+	);	
+	
+	$wp_customize->add_control(
+		'contact_phone',
+		array(
+			'label'    => __( 'Contact phone', 'yplefclassic' ),
+			'section'  => 'yplef_page_top',
+			'settings'  => 'yplef_page_top[contact_phone]',
+			'type'     => 'text',
+			// 'choices'  => yplefclassic_get_color_scheme_choices(),
+			'priority' => 1,
+		)
+	);
+
+		
+	$wp_customize->add_control(
+		'contact_address',
+		array(
+			'label'    => __( 'Contact Address', 'yplefclassic' ),
+			'section'  => 'yplef_page_top',
+			'settings'  => 'yplef_page_top[contact_address]',
+			'type'     => 'text',
+			// 'choices'  => yplefclassic_get_color_scheme_choices(),
+			'priority' => 1,
+		)
+	);
+
+	$wp_customize->add_control(
+		'facebook_link',
+		array(
+			'label'    => __( 'Facebook social link', 'yplefclassic' ),
+			'section'  => 'yplef_page_top',
+			'settings'  => 'yplef_page_top[facebook_link]',
+			'type'     => 'text',
+			// 'choices'  => yplefclassic_get_color_scheme_choices(),
+			'priority' => 1,
+		)
+	);
+
+
 }
 add_action( 'customize_register', 'yplefclassic_customize_register', 11 );
 
