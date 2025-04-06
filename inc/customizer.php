@@ -238,6 +238,28 @@ function yplefclassic_customize_register( $wp_customize ) {
 			'priority' => 1,
 		)
 	);
+	$wp_customize->add_control(
+		'twitter_link',
+		array(
+			'label'    => __( 'Twitter social link', 'yplefclassic' ),
+			'section'  => 'yplef_page_top',
+			'settings'  => 'yplef_page_top[twitter_link]',
+			'type'     => 'text',
+			// 'choices'  => yplefclassic_get_color_scheme_choices(),
+			'priority' => 1,
+		)
+	);
+	$wp_customize->add_control(
+		'instagram_link',
+		array(
+			'label'    => __( 'Instagram social link', 'yplefclassic' ),
+			'section'  => 'yplef_page_top',
+			'settings'  => 'yplef_page_top[instagram_link]',
+			'type'     => 'text',
+			// 'choices'  => yplefclassic_get_color_scheme_choices(),
+			'priority' => 1,
+		)
+	);
 
 
 }

@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>LEF - Online Education Template</title>
+    <title><?php bloginfo('description')?></title>
     <?php wp_head(); ?>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="<?php bloginfo('template_directory') ?>/assets/images/cropped-LEF_favicon-192x192.png" />
@@ -61,9 +61,9 @@
               <li><i class="fas fa-map-marker-alt"></i> <?php echo $top_section->contact_address?> </li>
             </ul>
             <ul class="t-social">
-              <?php if (@$top_section->facebook_link) : ?> <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>  <?php endif ;?>
-              <?php if (@$top_section->finstagram_link) : ?> <li> <a href="#"><i class="fab fa-instagram"></i></a> </li> <?php endif ;?>
-              <?php if (@$top_section->twitter_link) : ?> <li> <a href="#"><i class="fab fa-twitter"></i></a> </li>   <?php endif; ?>
+              <?php if (@$top_section->facebook_link) : ?> <li><a href="<?php echo $top_section->facebook_link?>"><i class="fab fa-facebook-f"></i></a></li>  <?php endif ;?>
+              <?php if (@$top_section->instagram_link) : ?> <li> <a href="<?php echo $top_section->instagram_link?>"><i class="fab fa-instagram"></i></a> </li> <?php endif ;?>
+              <?php if (@$top_section->twitter_link) : ?> <li> <a href="<?php echo $top_section->twitter_link?>"><i class="fab fa-twitter"></i></a> </li>   <?php endif; ?>
               <li>
                 <span class="ct-search-link"
                   ><a href="#"><i class="fa fa-search"></i></a

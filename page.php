@@ -13,9 +13,6 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-
 		<?php
 		// Start the loop.
 		while ( have_posts() ) :
@@ -32,8 +29,5 @@ get_header(); ?>
 			// End the loop.
 		endwhile;
 		?>
-
-		</main><!-- .site-main -->
-	</div><!-- .content-area -->
-
+	
 <?php get_footer(); ?>
