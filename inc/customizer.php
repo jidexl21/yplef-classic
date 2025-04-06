@@ -261,6 +261,55 @@ function yplefclassic_customize_register( $wp_customize ) {
 		)
 	);
 
+	/***
+	 * Toggle Site Sections
+	 */
+	$wp_customize->add_section( 'yplef_content_sections' , array(
+
+		'title'      => __( 'Enabled Content Sections', 'yplef' ),
+		
+		'priority'   => 30,
+		
+		) );
+
+	//Define the sections of the Template
+	$sections =	array(
+			array('label'=>'banner', 'name'=>'banner', 'desc'=>'Displays a banner. Create a post and add a category of Banner'),
+			array('label'=>'services', 'name'=>'services', 'desc'=>'Displays a list of services'),
+			array('label'=>'about',  'name'=>'About', 'desc'=>'Displays a list of posts categorized as about'),
+			array('label'=>'counter',  'name'=>'Counter', 'desc'=>'Displays a counter'),
+			array('label'=>'courses',  'name'=>'Courses', 'desc'=>'Displays a list of posts categorized as courses'),
+			array('label'=>'instructors',  'name'=>'Instructors', 'desc'=>'Displays a list of instructors'),
+			array('label'=>'testimonial',  'name'=>'Testimonial', 'desc'=>'Displays a list of posts tagged as testimonials'),
+			array('label'=>'packages',  'name'=>'Packages', 'desc'=>'Displays a list of packages'),
+			array('label'=>'news_events',  'name'=>'News and events', 'desc'=>'Displays a list posts categorizd as news_events'),
+			array('label'=>'call_to_action',  'name'=>'Call to Action', 'desc'=>'Call to action button'),
+			array('label'=>'blog_article',  'name'=>'Blog articles', 'desc'=>'Displays a list of blog articles'),
+			array('label'=>'newsletter',  'name'=>'Subscribe to our Newsletter', 'desc'=>'Displays a newsletter form')
+	);
+	
+	foreach( $sections as $section){
+		$curr = $section['name'];
+
+		$wp_customize->add_setting(
+			"yplef_content_sections[$curr]",
+			array(
+				'default'           => 1,
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			$curr,
+			array(
+				'label'    => __(  $section['label'], 'yplefclassic' ),
+				'section'  => 'yplef_content_sections',
+				'settings'  => "yplef_content_sections[$curr]",
+				'type'     => 'checkbox',
+				'priority' => 1,
+			)
+		);
+	}
 
 }
 add_action( 'customize_register', 'yplefclassic_customize_register', 11 );
